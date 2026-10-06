@@ -35,7 +35,7 @@ export const caseStudies: CaseStudy[] = [
     approach: ["Designed useful learning and builder-oriented programming.", "Coordinated speakers, partners and community communications.", "Supported organizers and continuity beyond individual events."],
     outcome: "The community grew from approximately 1,000 to 7,000+ members, with 15+ referenced technology and community programs.",
     lesson: "Sustained growth follows when people can repeatedly learn, build, connect and access opportunity.",
-    gallery: ["/Gdgoc_/Gdgoc .jpg", "/Gdgoc_/Gdgoc.JPEG", "/Testimonials/Testimonials .jpg"],
+    gallery: ["/Gdgoc_/Gdgoc .jpg", "/Gdgoc_/Gdgoc.JPEG", "/Build with AI_/IMG_7250.JPEG"],
   },
   {
     slug: "build-with-ai",

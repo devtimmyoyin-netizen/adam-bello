@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { EvidenceGallery } from "@/components/evidence-gallery";
 import { ScrollLargeText, ScrollRevealBlock } from "@/components/homepage-scroll-motion";
-import { caseStudies } from "@/lib/content";
+import { caseStudyDetails as caseStudies } from "@/lib/case-study-details";
 
 export function generateStaticParams() {
   return caseStudies.map(({ slug }) => ({ slug }));
@@ -64,7 +64,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           <ScrollRevealBlock index={2}><section><p className="kicker">The outcome</p><h3>What changed</h3><p>{study.outcome}</p></section></ScrollRevealBlock>
         </div>
         <section className="gallery-section">
-          <div className="section-head split-head"><div><p className="kicker">Evidence gallery</p><h2>The work, in the field.</h2></div><p>Selected program photography and supporting evidence.</p></div>
+          <div className="section-head split-head"><div><p className="kicker">Evidence gallery</p><h2>The work, in the field.</h2></div></div>
           <EvidenceGallery images={study.gallery} title={study.title} />
         </section>
         <section className="case-lesson"><p className="kicker">Strategic lesson</p><blockquote>{study.lesson}</blockquote></section>
