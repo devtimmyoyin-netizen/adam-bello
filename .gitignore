@@ -44,3 +44,4 @@ next-env.d.ts
 implementation.md
 config.bat
 content-file.md
+.env*
