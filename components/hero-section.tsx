@@ -25,15 +25,51 @@ export function HeroSection() {
       </div>
 
       <div className="editorial-hero__content">
-        <p className="editorial-hero__eyebrow">Product &amp; Programs Management</p>
-        <h1 id="hero-title">{headline.map((line, index) => <motion.span className="hero-headline-line" key={line} initial={reduceMotion ? false : homepageAnimationConfig.hero.headlineLine.initial} animate={homepageAnimationConfig.hero.headlineLine.animate} transition={{ ...homepageAnimationConfig.hero.headlineLine.transition, delay: index * homepageAnimationConfig.hero.headlineLine.stagger }}>{line}</motion.span>)}</h1>
-        <p>
-          I&apos;m  <strong style={{fontSize: "20px"}}> ADAM BELLO, </strong> I turn big-picture <strong>WHAT IFs </strong> into 
-          <strong> WHAT&apos;s NEXT.  </strong> I work at the intersection of technology,
-          strategy, and operations, building the systems that help teams scale,
-          align cross-functionally, and turn users into long-term advocates.
+        <p className="editorial-hero__eyebrow">
+          Product &amp; Programs Management
         </p>
-        <MotionLink className="editorial-hero__cta motion-button" href="#work" whileHover={reduceMotion ? undefined : { scale: homepageAnimationConfig.button.scale, color: "#11110f" }} transition={{ duration: homepageAnimationConfig.button.duration }}>
+        <h1 id="hero-title">
+          {headline.map((line, index) => (
+            <motion.span
+              className="hero-headline-line"
+              key={line}
+              initial={
+                reduceMotion
+                  ? false
+                  : homepageAnimationConfig.hero.headlineLine.initial
+              }
+              animate={homepageAnimationConfig.hero.headlineLine.animate}
+              transition={{
+                ...homepageAnimationConfig.hero.headlineLine.transition,
+                delay:
+                  index * homepageAnimationConfig.hero.headlineLine.stagger,
+              }}
+            >
+              {line}
+            </motion.span>
+          ))}
+        </h1>
+        <p>
+          I&apos;m <strong style={{ fontSize: "20px" }}> ADAM BELLO, </strong> I
+          turn big-picture <strong>WHAT IFs </strong> into
+          <strong> WHAT&apos;s NEXT. </strong> I work at the intersection of
+          technology, strategy, and operations, building the systems that help
+          teams scale, align cross-functionally, and turn users into long-term
+          advocates.
+        </p>
+        <MotionLink
+          className="editorial-hero__cta motion-button"
+          href="#work"
+          whileHover={
+            reduceMotion
+              ? undefined
+              : {
+                  scale: homepageAnimationConfig.button.scale,
+                  color: "#11110f",
+                }
+          }
+          transition={{ duration: homepageAnimationConfig.button.duration }}
+        >
           Explore case studies <ArrowUpRight aria-hidden="true" />
         </MotionLink>
       </div>
