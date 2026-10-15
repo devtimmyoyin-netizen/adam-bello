@@ -37,35 +37,71 @@ export function SiteNav() {
 
   return (
     <>
-      <header className={`capsule-header ${scrolled ? "capsule-header--scrolled" : ""} ${open ? "capsule-header--open" : ""}`}>
+      <header
+        className={`capsule-header ${scrolled ? "capsule-header--scrolled" : ""} ${open ? "capsule-header--open" : ""}`}
+      >
         <div className="capsule-nav">
           <Link href="/" className="capsule-brand" aria-label="Adam Bello home">
-            <span className="capsule-mark" aria-hidden="true">AB</span>
+            <span className="capsule-mark" aria-hidden="true">
+              AB
+            </span>
             <span>Adam</span>
           </Link>
           <span className="capsule-divider" aria-hidden="true" />
-          <button className="capsule-menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="site-menu" aria-label={open ? "Close menu" : "Open menu"}>
+          <button
+            className="capsule-menu-button"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="site-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
             {open ? <X /> : <Menu />}
           </button>
         </div>
-        <p className="availability-badge"><span aria-hidden="true" /> Available for work</p>
+        <p className="availability-badge">
+          <span aria-hidden="true" /> Available for work
+        </p>
       </header>
 
       {open && (
-        <nav id="site-menu" className="mobile-nav mobile-nav--capsule" aria-label="Main navigation">
+        <nav
+          id="site-menu"
+          className="mobile-nav mobile-nav--capsule"
+          aria-label="Main navigation"
+        >
           <div className="mobile-nav-main">
             <p>Explore</p>
             {links.map(([label, href], index) => (
               <Link key={href} href={href} onClick={() => setOpen(false)}>
-                <span>0{index + 1}</span><strong>{label}</strong><ArrowUpRight />
+                <span>0{index + 1}</span>
+                <strong>{label}</strong>
+                <ArrowUpRight />
               </Link>
             ))}
           </div>
           <div className="mobile-nav-aside">
-            <p>Start a conversation about communities, partnerships, programmes or events.</p>
-            <Link className="mobile-nav-contact" href="/contact" onClick={() => setOpen(false)}>Get in touch <ArrowUpRight /></Link>
-            <div className="mobile-nav-socials"><a href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={contact.twitter} target="_blank" rel="noreferrer">X / Twitter</a></div>
-            <a className="mobile-nav-email" href={`mailto:${contact.email}`}>{contact.email}</a>
+            <p>
+              Start a conversation about communities, partnerships, programmes
+              or events.
+            </p>
+            <Link
+              className="mobile-nav-contact"
+              href="/contact"
+              onClick={() => setOpen(false)}
+            >
+              Get in touch <ArrowUpRight />
+            </Link>
+            <div className="mobile-nav-socials">
+              <a href={contact.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a href={contact.twitter} target="_blank" rel="noreferrer">
+                X / Twitter
+              </a>
+            </div>
+            <a className="mobile-nav-email" href={`mailto:${contact.email}`}>
+              {contact.email}
+            </a>
           </div>
         </nav>
       )}

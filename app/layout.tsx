@@ -24,12 +24,24 @@ const serif = Source_Serif_4({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adam-bello.vercel.app"),
-  title: { default: "Adam Bello | Community Builder & Partnerships Lead", template: "%s | Adam Bello" },
-  description: "Adam Bello builds the systems that turn communities, events and partnerships into real opportunities.",
-  keywords: ["Adam Bello", "community operations", "developer programs", "ecosystem strategy", "partnerships", "events"],
+  title: {
+    default: "Adam Bello | Community Builder & Partnerships Lead",
+    template: "%s | Adam Bello",
+  },
+  description:
+    "Adam Bello builds the systems that turn communities, events and partnerships into real opportunities.",
+  keywords: [
+    "Adam Bello",
+    "community operations",
+    "developer programs",
+    "ecosystem strategy",
+    "partnerships",
+    "events",
+  ],
   openGraph: {
     title: "Adam Bello | Community Builder & Partnerships Lead",
-    description: "Adam Bello builds the systems that turn communities, events and partnerships into real opportunities.",
+    description:
+      "Adam Bello builds the systems that turn communities, events and partnerships into real opportunities.",
     url: "/",
     siteName: "Adam Bello",
     locale: "en_US",
@@ -46,11 +58,24 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Adam Bello | Community Builder & Partnerships Lead",
-    description: "Adam Bello builds the systems that turn communities, events and partnerships into real opportunities.",
-    images: [{ url: "/placeholders/og-hero.PNG?v=2", alt: "Adam Bello portfolio" }],
+    description:
+      "Adam Bello builds the systems that turn communities, events and partnerships into real opportunities.",
+    images: [
+      { url: "/placeholders/og-hero.PNG?v=2", alt: "Adam Bello portfolio" },
+    ],
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  return <html lang="en" className={`${sans.variable} ${serif.variable}`}><body><SmoothScroll><SiteNav />{children}<SiteFooter /></SmoothScroll></body></html>;
+  return (
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+      <body>
+        <SmoothScroll>
+          <SiteNav />
+          {children}
+          <SiteFooter />
+        </SmoothScroll>
+      </body>
+    </html>
+  );
 }

@@ -14,49 +14,60 @@ export function HighlightsSection() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const section = sectionRef.current;
-    const viewport = viewportRef.current;
-    const track = trackRef.current;
-    if (!section || !viewport || !track) return;
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      const viewport = viewportRef.current;
+      const track = trackRef.current;
+      if (!section || !viewport || !track) return;
 
-    const media = gsap.matchMedia();
-    media.add("(min-width: 761px) and (prefers-reduced-motion: no-preference)", () => {
-      const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
-      const updateSectionHeight = () => {
-        section.style.setProperty("--highlight-scroll-distance", `${distance()}px`);
-      };
-      updateSectionHeight();
-      gsap.set(track, { x: 0 });
+      const media = gsap.matchMedia();
+      media.add(
+        "(min-width: 761px) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const distance = () =>
+            Math.max(0, track.scrollWidth - viewport.clientWidth);
+          const updateSectionHeight = () => {
+            section.style.setProperty(
+              "--highlight-scroll-distance",
+              `${distance()}px`,
+            );
+          };
+          updateSectionHeight();
+          gsap.set(track, { x: 0 });
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${distance()}`,
-          scrub: 0.8,
-          invalidateOnRefresh: true,
-          onRefreshInit: updateSectionHeight,
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: () => `+=${distance()}`,
+              scrub: 0.8,
+              invalidateOnRefresh: true,
+              onRefreshInit: updateSectionHeight,
+            },
+          });
+          timeline.to(track, { x: () => -distance(), ease: "none" });
+
+          return () => {
+            timeline.scrollTrigger?.kill();
+            timeline.kill();
+            section.style.removeProperty("--highlight-scroll-distance");
+          };
         },
-      });
-      timeline.to(track, { x: () => -distance(), ease: "none" });
+      );
 
-      return () => {
-        timeline.scrollTrigger?.kill();
-        timeline.kill();
+      media.add("(max-width: 760px)", () => {
         section.style.removeProperty("--highlight-scroll-distance");
-      };
-    });
+        gsap.set(track, { clearProps: "transform" });
 
-    media.add("(max-width: 760px)", () => {
-      section.style.removeProperty("--highlight-scroll-distance");
-      gsap.set(track, { clearProps: "transform" });
+        return () =>
+          section.style.removeProperty("--highlight-scroll-distance");
+      });
 
-      return () => section.style.removeProperty("--highlight-scroll-distance");
-    });
-
-    return () => media.revert();
-  }, { scope: sectionRef });
+      return () => media.revert();
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section id="work" ref={sectionRef} className="horizontal-highlights">
@@ -82,13 +93,21 @@ export function HighlightsSection() {
                   <ArrowUpRight />
                 </div>
                 <div className="highlight-card__media">
-                  <Image src={study.image} alt={`${study.title} case study`} fill sizes="(max-width: 760px) 84vw, 46vw" />
+                  <Image
+                    src={study.image}
+                    alt={`${study.title} case study`}
+                    fill
+                    sizes="(max-width: 760px) 84vw, 46vw"
+                  />
                 </div>
                 <div className="highlight-card__body">
-                  <p>{study.eyebrow}</p><h3>{study.title}</h3><p>{study.summary}</p>
+                  <p>{study.eyebrow}</p>
+                  <h3>{study.title}</h3>
+                  <p>{study.summary}</p>
                 </div>
                 <div className="highlight-card__metric">
-                  <strong>{study.metric}</strong><span>{study.metricLabel}</span>
+                  <strong>{study.metric}</strong>
+                  <span>{study.metricLabel}</span>
                 </div>
               </Link>
             ))}
