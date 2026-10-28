@@ -1,8 +1,17 @@
 /** Shared variants and scroll thresholds for the homepage. */
 export const homepageAnimationConfig = {
   hero: {
-    image: { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5, ease: "easeOut" } },
-    headlineLine: { initial: { opacity: 0, y: 28 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5, ease: "easeOut" }, stagger: 0.1 },
+    image: {
+      initial: { opacity: 0, y: 24 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    headlineLine: {
+      initial: { opacity: 0, y: 28 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.5, ease: "easeOut" },
+      stagger: 0.1,
+    },
   },
   scrollRanges: {
     // The target moves from 80% to 55% of the viewport: a short, snappy reveal window.
