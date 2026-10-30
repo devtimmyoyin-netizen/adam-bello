@@ -26,7 +26,7 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     name: "Habeeb Abubakar",
-    portrait: "/Personal pictures_/habeeb-abubakar.jfif",
+    portrait: "/Personal pictures_/habeeb-abubakar.jpg",
     role: "Lead, Unilorin Fetuils Tech Hub · FrontEnd Developer · IoT & Embedded Systems Engineer",
     source: "LinkedIn recommendation · July 23, 2025",
     tone: "peach",
@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Aminat Afolabi",
-    portrait: "/Personal pictures_/aminat-afolabi.jfif",
+    portrait: "/Personal pictures_/aminat-afolabi.jpg",
     role: "Product Manager @ Conclase",
     source: "LinkedIn recommendation",
     tone: "sage",
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Ayokunle Abiola",
-    portrait: "/Personal pictures_/ayokunle-abiola.jfif",
+    portrait: "/Personal pictures_/ayokunle-abiola.jpg",
     role: "NSBE Golden Torch Awardee — Chicago · Oil & Gas · Field Engineer",
     source: "LinkedIn recommendation",
     tone: "plum",
